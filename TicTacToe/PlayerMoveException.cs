@@ -6,5 +6,9 @@ namespace TicTacToe
 {
     class PlayerMoveException : Exception
     {
+        public PlayerMoveException()
+        {
+
+        }
     }
 }
