@@ -51,6 +51,7 @@ namespace TicTacToe
         {
             while (!isGameOver)
             {
+                Move playerMarker = Move.X;
                 foreach (var player in players)
                 {
                     if (player is HumanPlayer)
@@ -60,13 +61,20 @@ namespace TicTacToe
                     }
                     try
                     {
-                        player.GetNextMove();
+                        int playerMove = player.GetNextMove();
+                        if(board[playerMove-1] != Move.Empty)
+                        {
+                            throw new PlayerMoveException();
+                        }
+                        board[playerMove-1] = playerMarker;
                     }
                     catch (PlayerMoveException)
                     {
                         isGameOver = true;
                     }
+                    playerMarker = Move.O;
                 }
+
             }
         }
 
