@@ -6,6 +6,7 @@ namespace TicTacToe.MyInterfaces
 {
     interface IPlayer
     {
+        int PlayerNumber { get; }
         void RegisterPreviousMove();
         int GetNextMove();
     }
